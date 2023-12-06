@@ -58,7 +58,7 @@
         color: #27A7E7;
         opacity: 1;">Физик-теоретик</div>
 
-    <div onclick="choice('mario');" style="position: absolute;
+    <div id="mario" onclick="choice('mario');" style="position: absolute;
         top: 383px;
         left: 344px;
         width: 392px;
@@ -69,7 +69,7 @@
         border-radius: 50px;
         opacity: 1;"></div>
 
-    <div onclick="choice('albert');" style="position: absolute;
+    <div id="albert" onclick="choice('albert');" style="position: absolute;
         top: 1024px;
         left: 344px;
         width: 392px;
@@ -82,14 +82,24 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
-    
+        tg.expand();
+
+        document.getElementById('mario').addEventListener('click', function() {
+            choice('mario');
+        });
+
+        document.getElementById('albert').addEventListener('click', function() {
+            choice('albert');
+        });
+
         function choice(character) {
-          let data = {
-              name: character,
-          };
-          tg.sendData(JSON.stringify(data));
-          tg.close();
+            let data = {
+                name: character,
+            };
+            tg.sendData(JSON.stringify(data));
+            tg.close();
         }
+
         tg.ready();
     </script>
 </body>
