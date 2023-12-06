@@ -83,12 +83,6 @@
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand()
-        let data = {
-            name: "mario",
-        };
-        tg.sendData(JSON.stringify(data));
-        tg.sendMessage("Бронирование отправлено!");
-        tg.close();
     
         function choice(character) {
           let data = {
@@ -98,6 +92,7 @@
           tg.sendMessage("Бронирование отправлено!");
           tg.close();
         }
+      tg.ready();
     </script>
 </body>
 </html>
