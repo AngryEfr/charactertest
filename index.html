@@ -84,11 +84,12 @@
         let tg = window.Telegram.WebApp;
     
         function choice(character) {
-            let data = {
-                name: character,
-            };
-            tg.sendData(JSON.stringify(data));
-            tg.close();
+          let data = {
+              name: character,
+          };
+          tg.sendData(JSON.stringify(data));
+          tg.sendMessage("Бронирование отправлено!");
+          tg.close();
         }
     </script>
 </body>
